@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: ""
+title: "About me - Pavan Naidu"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
