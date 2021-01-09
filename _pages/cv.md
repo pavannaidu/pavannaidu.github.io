@@ -11,7 +11,7 @@ redirect_from:
 
 Education
 ======
-* B.E. in Electronics \& Communication Engineering, SJCE, 2016
+* B.E. in Electronics & Communication Engineering, SJCE, 2016
 * M.S. in Information Systems Management, Carnegie Mellon University, 2019
 
 Work experience
@@ -28,15 +28,9 @@ Work experience
   
 Skills
 ======
-* Data Science
-  * Python
-  * C++
-* Business Intelligence
-  * SQL
-  * Tableau
-* Cloud
-  * AWS
-  * Azure
+* Data Science: Python, C++
+* Business Intelligence: SQL, Tableau
+* Cloud: AWS, Azure
 
 <!-- 
 Publications
