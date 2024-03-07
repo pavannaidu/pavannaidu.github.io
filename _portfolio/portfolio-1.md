@@ -1,7 +1,9 @@
 ---
-title: "Portfolio item number 1"
-excerpt: "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+title: "Mysore lights during Dasara festival"
+excerpt: "<img src='/images/Mysore.jpg'>"
 collection: portfolio
 ---
 
-This is an item in your portfolio. It can be have images or nice text. If you name the file .md, it will be parsed as markdown. If you name the file .html, it will be parsed as HTML. 
+The Mysore Dasara festival is a ten-day celebration in Mysore, India, and the highlight is definitely the illumination of the Mysore Palace.  During this time, the palace is adorned with nearly 100,000 light bulbs, making it a truly dazzling spectacle. 
+
+In addition to the Mysore Palace, the entire city of Mysore is lit up with festive lights during Dasara.  Streets, buildings, and circles are all illuminated, creating a magical atmosphere.  The lighting displays are not just random collections of lights - they often depict scenes from mythology or nature.

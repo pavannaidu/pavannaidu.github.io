@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "CV"
+title: ""
 permalink: /cv/
 author_profile: true
 redirect_from:
@@ -11,54 +11,39 @@ redirect_from:
 
 Education
 ======
-* Ph.D in Version Control Theory, GitHub University, 2018 (expected)
-* M.S. in Jekyll, GitHub University, 2014
-* B.S. in GitHub, GitHub University, 2012
+* M.S. in Information Systems Management, Carnegie Mellon University, 2019
+* B.S. in Electronics and Communications Engineering, Visvesvaraya Technological University, 2016
 
-Work experience
+Work
 ======
-* Spring 2024: Academic Pages Collaborator
-  * Github University
-  * Duties includes: Updates and improvements to template
-  * Supervisor: The Users
+* QuantumBlack, McKinsey & Company 
+  * Role: Senior Data Scientist
+  * Location: Boston, MA; Houston, TX
 
-* Fall 2015: Research Assistant
-  * Github University
-  * Duties included: Merging pull requests
-  * Supervisor: Professor Hub
+* Mylan
+  * Role: Data Science Manager (Capstone at Carnegie Mellon University)
+  * Location: Pittsburgh, PA
 
-* Summer 2015: Research Assistant
-  * Github University
-  * Duties included: Tagging issues
-  * Supervisor: Professor Git
-  
-Skills
-======
-* Skill 1
-* Skill 2
-  * Sub-skill 2.1
-  * Sub-skill 2.2
-  * Sub-skill 2.3
-* Skill 3
+* Indeed
+  * Role: Business Intelligence Intern
+  * Location: New York City, NY
 
-Publications
+* Carnegie Mellon University
+  * Role: Marketing Assistant
+  * Location: Pittsburgh, PA  
+
+* Thorogood Associates
+  * Role: Business Intelligence & Analytics Consultant
+  * Location: Bangalore, KA
+
+Research
 ======
-  <ul>{% for post in site.publications reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Talks
-======
-  <ul>{% for post in site.talks reversed %}
-    {% include archive-single-talk-cv.html  %}
-  {% endfor %}</ul>
-  
-Teaching
-======
-  <ul>{% for post in site.teaching reversed %}
-    {% include archive-single-cv.html %}
-  {% endfor %}</ul>
-  
-Service and leadership
-======
-* Currently signed in to 43 different slack teams
+* Identifying toxicity and bias in online comments using RNN and word embeddings [demo](https://www.youtube.com/watch?v=QLqVYA6RhL0)
+
+* Simpsons, through the seasons [demo](https://www.youtube.com/watch?v=C6FL1cF4DlU)
+
+* An Efficient Recursive Technique for Braille Dot Extraction in Optical Braille Recognition through Frequency Domain Approach [paper](https://www.researchgate.net/profile/Shreekanth-T/publication/309672514_An_Efficient_Recursive_Technique_for_Braille_Dot_Extraction_in_Optical_Braille_Recognition_through_Frequency_Domain_Approach/links/581c75df08ae12715af1cf41/An-Efficient-Recursive-Technique-for-Braille-Dot-Extraction-in-Optical-Braille-Recognition-through-Frequency-Domain-Approach.pdf)
+
+
+
+
