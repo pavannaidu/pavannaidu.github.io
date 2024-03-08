@@ -1,5 +1,6 @@
 ---
 title: "Mysore lights during Dasara festival"
+date: 2015-10-07
 excerpt: "<img src='/images/Mysore.jpg'>"
 collection: portfolio
 ---
