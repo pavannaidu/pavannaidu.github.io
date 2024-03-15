@@ -1,7 +1,7 @@
 ---
 title: 'Fine-tuning Neural Networks with less parameters'
 date: 2023-08-02
-permalink: /posts/2024/03/PEFT_MLP_LoRA/
+permalink: /posts/2023/08/PEFT_MLP_LoRA/
 tags:
   - LLM
   - PEFT
