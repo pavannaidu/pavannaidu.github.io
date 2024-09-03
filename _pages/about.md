@@ -9,7 +9,7 @@ redirect_from:
 
 About me
 ======
-I am Pavan Naidu. This is my personal homepage.
+This is my personal homepage.
 
 Personally, I'm interested in artificial intelligence, cooking, photography, dogs, spirituality and automobiles, in no particular order.
 
