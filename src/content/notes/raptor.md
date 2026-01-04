@@ -1,0 +1,27 @@
+---
+title: 'RAPTOR: Building a Better Brain for Large Language Models'
+date: 2024-03-07
+description: 'How RAPTOR improves LLM information retrieval through hierarchical summarization trees.'
+tags:
+  - RAG
+  - LLM
+---
+
+Large language models (LLMs) are impressive feats of engineering, capable of generating human-quality text and answering complex questions. But they can struggle with tasks that require reasoning across long stretches of text or keeping track of constantly changing information.
+
+Enter RAPTOR: Recursive Abstractive Processing for Tree-Organized Retrieval. This novel system by Parth Sarthi et al., improves how LLMs handle information retrieval by constructing a hierarchical summarization tree.
+
+## How it Works
+
+Imagine a complex document like a giant tree. RAPTOR takes this document and chops it up into smaller chunks. It then analyzes these chunks, grouping related ones together using a technique called soft clustering. This allows for flexibility, as chunks can belong to multiple groups if their content fits.
+
+Next, RAPTOR creates summaries for each group, capturing the key points. This process repeats itself recursively, building a tree structure where summaries at higher levels represent broader topics and lower levels contain more specific details.
+
+## The Benefits of a Tree-Structured Brain
+
+This tree structure offers several advantages for LLMs. First, it allows them to efficiently navigate large amounts of text. When answering a question, the LLM can zoom in on the relevant section of the tree, focusing its processing power where it's most needed.
+
+## References
+
+- [Original paper](https://arxiv.org/html/2401.18059v1)
+- [Example Langchain code](https://github.com/langchain-ai/langchain/blob/master/cookbook/RAPTOR.ipynb)

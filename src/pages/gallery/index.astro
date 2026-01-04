@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import GalleryCard from '@/components/GalleryCard.astro';
+
+const items = (await getCollection('gallery'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Gallery" description="Life through the viewfinder.">
+  <section class="py-12 md:py-16">
+    <div class="container-wide">
+      <header class="mb-10 max-w-2xl">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+          Gallery
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Life through the viewfinder.
+        </p>
+      </header>
+
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {items.map((item) => (
+          <GalleryCard item={item} />
+        ))}
+      </div>
+
+      {items.length === 0 && (
+        <p class="text-gray-500 dark:text-gray-400 text-center py-12">
+          No gallery items yet. Check back soon!
+        </p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

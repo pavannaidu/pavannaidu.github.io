@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NoteCard from '@/components/NoteCard.astro';
+
+const notes = (await getCollection('notes'))
+  .filter((note) => !note.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Notes" description="Reflections on intelligence, artificial and otherwise.">
+  <section class="py-12 md:py-16">
+    <div class="container-narrow">
+      <header class="mb-10">
+        <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3">
+          Notes
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-300">
+          Reflections on intelligence, artificial and otherwise.
+        </p>
+      </header>
+
+      <div class="grid gap-6 md:grid-cols-2">
+        {notes.map((note, index) => (
+          <NoteCard note={note} featured={index === 0} />
+        ))}
+      </div>
+
+      {notes.length === 0 && (
+        <p class="text-gray-500 dark:text-gray-400 text-center py-12">
+          No notes yet. Check back soon!
+        </p>
+      )}
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NoteCard from '@/components/NoteCard.astro';
+import SocialLinks from '@/components/SocialLinks.astro';
+import { siteConfig } from '@/data/siteConfig';
+
+const notes = (await getCollection('notes'))
+  .filter((note) => !note.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="py-16 md:py-24">
+    <div class="container-narrow">
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <!-- Avatar -->
+        <div class="shrink-0">
+          <img
+            src={siteConfig.author.avatar}
+            alt={siteConfig.author.name}
+            class="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover ring-4 ring-gray-100 dark:ring-gray-800"
+          />
+        </div>
+
+        <!-- Info -->
+        <div class="text-center md:text-left">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-3">
+            {siteConfig.author.name}
+          </h1>
+          <p class="text-lg md:text-xl text-primary-600 dark:text-primary-400 font-medium mb-2">
+            {siteConfig.author.role} at {siteConfig.author.employer}
+          </p>
+          <p class="text-gray-500 dark:text-gray-400 flex items-center justify-center md:justify-start gap-1 mb-4">
+            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {siteConfig.author.location}
+          </p>
+          <SocialLinks class="justify-center md:justify-start" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="pb-16">
+    <div class="container-narrow">
+      <div class="card p-6 md:p-8">
+        <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">About me</h2>
+        <div class="prose dark:prose-dark max-w-none">
+          <p>
+            Personally, I'm interested in artificial intelligence, cooking, photography, dogs, spirituality and automobiles, in no particular order.
+          </p>
+          <p>
+            Professionally, I have a proven track record in data science leadership, bringing extensive experience driving impactful solutions across various industries. I've led teams in developing AI-powered applications that have yielded significant results. I'm passionate about fostering knowledge sharing and effective communication of complex data science concepts.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Notes Section -->
+  <section class="pb-16 md:pb-24">
+    <div class="container-narrow">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white">Latest Notes</h2>
+        <a href="/notes" class="link text-sm font-medium flex items-center gap-1">
+          View all
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {notes.map((note) => (
+          <NoteCard note={note} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

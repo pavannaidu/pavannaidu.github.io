@@ -1,0 +1,116 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import BaseHead from '@/components/BaseHead.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <BaseHead title={title} description={description} image={image} />
+    <ViewTransitions />
+  </head>
+  <body class="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <Header />
+    <main class="flex-1" transition:animate="fade">
+      <slot />
+    </main>
+    <Footer />
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="fixed inset-0 z-[100] hidden">
+      <div id="search-overlay" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      <div class="relative flex items-start justify-center pt-20 px-4">
+        <div class="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+          <div id="search-container" class="p-4"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function initSearch() {
+        const modal = document.getElementById('search-modal');
+        const overlay = document.getElementById('search-overlay');
+        const searchBtns = document.querySelectorAll('#search-btn, #search-btn-mobile');
+
+        if (!modal || !overlay) return;
+
+        const openModal = () => {
+          modal.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+          // Focus search input after Pagefind loads
+          setTimeout(() => {
+            const input = modal.querySelector('input');
+            if (input) input.focus();
+          }, 100);
+        };
+
+        const closeModal = () => {
+          modal.classList.add('hidden');
+          document.body.style.overflow = '';
+        };
+
+        searchBtns.forEach((btn) => btn.addEventListener('click', openModal));
+        overlay.addEventListener('click', closeModal);
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+          if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            if (modal.classList.contains('hidden')) {
+              openModal();
+            } else {
+              closeModal();
+            }
+          }
+          if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
+          }
+        });
+      }
+
+      // Load Pagefind (only in production)
+      async function loadPagefind() {
+        const container = document.getElementById('search-container');
+        if (!container || container.dataset.loaded) return;
+
+        try {
+          // Use dynamic import with variable to prevent Vite from analyzing it
+          const pagefindPath = '/pagefind/pagefind-ui.js';
+          // @ts-ignore
+          const pagefindModule = await import(/* @vite-ignore */ pagefindPath);
+          const PagefindUI = pagefindModule.PagefindUI;
+          new PagefindUI({
+            element: '#search-container',
+            showImages: false,
+            showSubResults: true,
+          });
+          container.dataset.loaded = 'true';
+        } catch (e) {
+          // In dev mode or if pagefind isn't built yet
+          container.innerHTML = '<p class="text-gray-500 dark:text-gray-400 text-center py-4 text-sm">Search is available after running <code class="px-2 py-0.5 bg-gray-100 dark:bg-gray-800 rounded font-mono text-xs">npm run build</code></p>';
+        }
+      }
+
+      initSearch();
+
+      // Delay Pagefind load to avoid import errors in dev
+      setTimeout(() => loadPagefind(), 100);
+
+      document.addEventListener('astro:after-swap', () => {
+        initSearch();
+        setTimeout(() => loadPagefind(), 100);
+      });
+    </script>
+  </body>
+</html>

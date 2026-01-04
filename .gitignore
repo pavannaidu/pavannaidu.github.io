@@ -1,5 +1,37 @@
-# Ignore the contents of the _site directory
-_site/
+# Astro
+dist/
+.astro/
 
-# Ignore the Gemfile that is generated
+# Dependencies
+node_modules/
+
+# Logs
+npm-debug.log*
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.tsbuildinfo
+
+# Pagefind
+public/pagefind/
+
+# Legacy Jekyll (can be removed later)
+_site/
 Gemfile.lock
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
