@@ -41,7 +41,7 @@ This is an Astro static site with Tailwind CSS, hosted on GitHub Pages.
 - `TagList.astro` - Tag display component
 
 **Layouts (src/layouts/):**
-- `BaseLayout.astro` - Root layout with ViewTransitions and search modal
+- `BaseLayout.astro` - Root layout with ViewTransitions
 - `BlogPostLayout.astro` - Blog post layout
 - `PortfolioLayout.astro` - Portfolio item layout
 
@@ -61,7 +61,6 @@ This is an Astro static site with Tailwind CSS, hosted on GitHub Pages.
 
 - **View Transitions** - Smooth page navigation
 - **Dark Mode** - Toggle with localStorage persistence
-- **Search** - Pagefind static search (Cmd+K to open)
 - **Responsive** - Mobile-first design with Tailwind
 
 ## Deployment
